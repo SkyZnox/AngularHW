@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages Test
 
 # Ce pipeline se déclenchera à chaque fois qu'un merge est effectué sur la branche 'main'
 on:
