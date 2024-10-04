@@ -1,0 +1,31 @@
+name: Linter Angular
+
+# Le pipeline se déclenchera lorsqu'une pull request est ouverte ou modifiée
+on:
+  pull_request:
+    branches:
+      - main
+
+# Définition des jobs du workflow
+jobs:
+  lint:
+    runs-on: ubuntu-latest  # Utilisation d'une VM Ubuntu
+
+    steps:
+      # Étape 1 : Cloner le code du dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Étape 2 : Installer Node.js pour exécuter Angular CLI
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      # Étape 3 : Installer les dépendances Angular
+      - name: Install dependencies
+        run: npm ci  # 'npm ci' pour installer à partir du lockfile (meilleure pratique CI)
+
+      # Étape 4 : Exécuter ng lint pour linter le code
+      - name: Run Angular lint
+        run: npm run lint
