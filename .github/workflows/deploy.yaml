@@ -1,8 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages Angular
 
 # Ce pipeline se déclenchera à chaque fois qu'un merge est effectué sur la branche 'main'
 on:
-  push:
+  pull_request:
     branches:
       - main
 
