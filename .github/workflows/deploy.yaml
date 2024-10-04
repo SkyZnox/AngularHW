@@ -19,7 +19,7 @@ jobs:
           node-version: '18.x'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm i
 
       - name: Build Angular app
         run: npm run build -- --output-path=dist --base-href=/AngularHW/
@@ -28,6 +28,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
           branch: gh-pages  # La branche où déployer le githyb
-          folder: dist  # Le dossier à déployer
+          folder: dist/browser  # Le dossier à déployer
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Utilis
