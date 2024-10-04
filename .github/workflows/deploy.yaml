@@ -30,7 +30,7 @@ jobs:
       - name: List files in dist folder
         run: ls -la ./dist
 
-      - name: List files
+      - name: List files for testing
         run: ls
 
       - name: Deploy to GitHub Pages
