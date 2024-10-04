@@ -33,6 +33,9 @@ jobs:
       - name: List files for testing
         run: ls
 
+      - name: CD and Show currect directory
+        run: cd dist/ | pwd
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
