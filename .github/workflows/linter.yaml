@@ -1,0 +1,29 @@
+name: Linter Angular
+
+on:
+  pull_request:
+    branches:
+      - main  # Ou la branche que tu utilises
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Cloner le dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Étape 2 : Installer Node.js 18.x pour exécuter Angular CLI
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'  # Utiliser Node.js v18 ou supérieur
+
+      # Étape 3 : Installer les dépendances Angular
+      - name: Install dependencies
+        run: npm ci
+
+      # Étape 4 : Exécuter ng lint pour linter le code
+      - name: Run Angular lint
+        run: npm run lint
