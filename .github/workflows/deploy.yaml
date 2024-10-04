@@ -1,36 +1,35 @@
 name: Deploy to GitHub Pages
 
-# Ce pipeline se déclenchera à chaque fois qu'un merge est effectué sur la branche 'main'
 on:
   push:
     branches:
       - main
 
-# Jobs à exécuter pour le déploiement
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest  # Utilise une machine Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
-      # Étape 1 : Cloner le dépôt
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Étape 2 : Installer Node.js 18.x pour exécuter Angular CLI
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.x'  # Utiliser Node.js 18.x (compatible avec Angular CLI)
+          node-version: '18.x'
 
-      # Étape 3 : Installer les dépendances Angular
       - name: Install dependencies
         run: npm ci
 
-      # Étape 4 : Construire l'application Angular
-      - name: Build Angular app
-        run: npm run build -- --output-path=dist | ls
+      - name: Show current directory
+        run: pwd
 
-      # Étape 5 : Déployer sur GitHub Pages
+      - name: Build Angular app
+        run: npm run build -- --output-path=dist --base-href=/AngularHW/
+
+      - name: List files in dist folder
+        run: ls -la ./dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
