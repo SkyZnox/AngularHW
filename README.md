@@ -1,3 +1,26 @@
+# My explicative part for the homework
+
+So, for this project, I had to set up two workflows using GitHub Actions. 
+
+The first one, named Linter Angular from the linter.yaml, processes when a pull request is done from one branch to the main branch. It runs the Angular lint using 
+this command `npm run lint`. 
+
+The second one, named Deploy to GitHub Pages from the deploy.yaml, processes when a push is done on the main branch. It builds the project and deploys the build
+directly on GitHub Pages.
+
+So after each push on main, I'll be able to see my project on this link : https://skyznox.github.io/AngularHW/
+
+
+If I want to deploy my project on each pull request done to the main branch, it's pretty easy to change on the deploy.yaml. 
+
+## Author
+
+Homework done by M.C
+
+---
+
+# Generated Part
+
 # Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.

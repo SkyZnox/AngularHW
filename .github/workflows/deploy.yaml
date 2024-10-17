@@ -27,7 +27,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
-          branch: gh-pages  # La branche où déployer le githyb
-          folder: dist/browser  # Le dossier à déployer
+          branch: gh-pages
+          folder: dist/browser
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Utilis
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
